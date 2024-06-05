@@ -22,9 +22,17 @@ namespace Lagerstyringssystem
                 Console.WriteLine("3. Sjå alle lager-produkter");
                 string userInput = Console.ReadLine();
 
-                if (userInput == "1")
+                switch (userInput)
                 {
-                    addProduct();
+                    case "1":
+                        addProduct();
+                        break;
+                    case "2":
+                        removeProduct();
+                        break;
+                    case "3":
+                        viewLager();
+                        break;
                 }
             }
         }
@@ -59,11 +67,11 @@ namespace Lagerstyringssystem
             Console.WriteLine("Kva er prisen på ditt produkt?");
             string price = Console.ReadLine();
             double pricedbl = Convert.ToInt32(price);
-
+            Console.Clear();
             switch (type)
             {
                 case "1":
-                    Console.WriteLine("Kor lang garanti har produktet ditt?");
+                    Console.WriteLine("Kor lang garanti har produktet ditt (i måneder)?");
                     string ElEgenskap = Console.ReadLine();
                     Console.Clear();
                     Elektronikk newEl = new Elektronikk(name, pricedbl, ElEgenskap);
@@ -95,9 +103,35 @@ namespace Lagerstyringssystem
                     break;
             }
 
-            
+        }
 
+        public void removeProduct()
+        {
+            Console.Clear();
+            Console.WriteLine("Skriv ID'en av produktet du vil fjerne, eller 'e' for å gå tilbake");
+            for (int i = 0; i < lager.Products.Count; i++)
+            {
+                Console.Write($"{i}. ");
+                lager.Products[i].SkrivUtInfo();
+            }
 
+            string userInput = Console.ReadLine();
+            int userNumber = Convert.ToInt32(userInput);
+
+            lager.Products.RemoveAt(userNumber);
+            Console.Clear();
+            Console.WriteLine("Produktet har blitt fjernet");
+        }
+
+        public void viewLager()
+        {
+            Console.Clear();
+            foreach (var product in lager.Products)
+            {
+                product.SkrivUtInfo();
+            }
+
+            Console.ReadKey(true);
         }
     }
 }

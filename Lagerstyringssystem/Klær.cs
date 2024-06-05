@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Lagerstyringssystem
 {
-    internal class Klær
+    internal class Klær : Iproduct
     {
         public string Navn { get; set; }
         public double Pris { get; set; }
@@ -21,10 +21,11 @@ namespace Lagerstyringssystem
 
         public void SkrivUtInfo()
         {
-            Console.Clear();
-            Console.WriteLine($"Navn: {Navn}");
-            Console.WriteLine($"Pris: {Pris}");
-            Console.WriteLine($"Størrelse: {Egenskap}");
+            
+            Console.Write($"Navn: {Navn}\t\t");
+            Console.Write($"Pris: {Pris}\t\t");
+            Console.Write($"Størrelse: {Egenskap}");
+            Console.WriteLine();
         }
     }
 }

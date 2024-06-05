@@ -21,10 +21,11 @@ namespace Lagerstyringssystem
 
         public void SkrivUtInfo()
         {
-            Console.Clear();
-            Console.WriteLine($"Navn: {Navn}");
-            Console.WriteLine($"Pris: {Pris}");
-            Console.WriteLine($"Utløpsdato: {Egenskap}");
+            
+            Console.Write($"Navn: {Navn}\t\t");
+            Console.Write($"Pris: {Pris}\t\t");
+            Console.Write($"Utløpsdato: {Egenskap}");
+            Console.WriteLine();
         }
     }
 }
