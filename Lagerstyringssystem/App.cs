@@ -121,6 +121,7 @@ namespace Lagerstyringssystem
             lager.Products.RemoveAt(userNumber);
             Console.Clear();
             Console.WriteLine("Produktet har blitt fjernet");
+            Console.ReadKey(true);
         }
 
         public void viewLager()
